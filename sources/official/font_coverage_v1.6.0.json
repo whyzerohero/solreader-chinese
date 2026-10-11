@@ -1,0 +1,59 @@
+[
+  {
+    "path": "src/UI/Fonts/IBMFFonts/SolSans_75.ibmf",
+    "mapped_codepoints": 1259,
+    "cjk_unified_4e00_9fff": 0,
+    "sample": {
+      "中": false,
+      "文": false,
+      "阅": false,
+      "读": false,
+      "，": false,
+      "。": false,
+      "A": true,
+      "B": true,
+      "C": true,
+      "0": true,
+      "1": true,
+      "2": true
+    }
+  },
+  {
+    "path": "src/UI/Fonts/IBMFFonts/NotoSans-Light.ttf",
+    "mapped_codepoints": 2793,
+    "cjk_unified_4e00_9fff": 0,
+    "sample": {
+      "中": false,
+      "文": false,
+      "阅": false,
+      "读": false,
+      "，": false,
+      "。": false,
+      "A": true,
+      "B": true,
+      "C": true,
+      "0": true,
+      "1": true,
+      "2": true
+    }
+  },
+  {
+    "path": "src/UI/Fonts/TTFFonts/SolPrivate-Light.ttf",
+    "mapped_codepoints": 6,
+    "cjk_unified_4e00_9fff": 0,
+    "sample": {
+      "中": false,
+      "文": false,
+      "阅": false,
+      "读": false,
+      "，": false,
+      "。": false,
+      "A": false,
+      "B": false,
+      "C": false,
+      "0": false,
+      "1": false,
+      "2": false
+    }
+  }
+]
