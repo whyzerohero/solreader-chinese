@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-10-12",
+  "reproducible_firmware_build_verified": false,
+  "repositories": [
+    {
+      "name": "embedded-app",
+      "url": "https://github.com/sindarin-inc/embedded-app.git",
+      "default_branch": "main",
+      "commit": "7dcf0850daa5cec076c8d68e2f56cf413ff707aa",
+      "ref": "release/v1.6.0",
+      "role": "first_edition_v160_source_candidate",
+      "license_status": "NO_LICENSE_FILE_FOUND_AUTHORIZATION_UNRESOLVED",
+      "license_files": [],
+      "tags": [
+        "release/0.3.0",
+        "release/v0.1.0",
+        "release/v0.1.1",
+        "release/v0.1.2",
+        "release/v0.1.3",
+        "release/v0.1.99",
+        "release/v0.1.999",
+        "release/v0.1.9999",
+        "release/v0.2.0",
+        "release/v0.2.99",
+        "release/v0.2.999",
+        "release/v0.2.9999",
+        "release/v0.3.0",
+        "release/v0.3.99",
+        "release/v0.3.999",
+        "release/v0.3.9999",
+        "release/v0.4.0",
+        "release/v0.4.99",
+        "release/v0.4.999",
+        "release/v0.4.9999",
+        "release/v0.4.99999",
+        "release/v0.4.999999",
+        "release/v0.5.0",
+        "release/v0.5.1",
+        "release/v0.5.2",
+        "release/v0.5.3",
+        "release/v0.5.4",
+        "release/v0.5.5",
+        "release/v0.5.6",
+        "release/v0.5.7",
+        "release/v0.6.0",
+        "release/v0.6.1",
+        "release/v0.6.2",
+        "release/v0.6.3",
+        "release/v0.6.99",
+        "release/v0.6.999",
+        "release/v0.6.9999",
+        "release/v0.6.99999",
+        "release/v0.7.0",
+        "release/v0.7.1",
+        "release/v0.7.2",
+        "release/v0.7.3",
+        "release/v0.7.4",
+        "release/v0.9.9",
+        "release/v0.9.99",
+        "release/v1.0.0",
+        "release/v1.0.1",
+        "release/v1.0.2",
+        "release/v1.0.3",
+        "release/v1.0.4",
+        "release/v1.0.5",
+        "release/v1.0.6",
+        "release/v1.0.7",
+        "release/v1.0.99",
+        "release/v1.0.999",
+        "release/v1.0.9999",
+        "release/v1.1.0",
+        "release/v1.1.99",
+        "release/v1.1.99.1",
+        "release/v1.1.99.2",
+        "release/v1.1.99.3",
+        "release/v1.1.99.4",
+        "release/v1.1.99.5",
+        "release/v1.1.99.6",
+        "release/v1.1.99.7",
+        "release/v1.1.99.8",
+        "release/v1.1.99.9",
+        "release/v1.2.0",
+        "release/v1.2.1",
+        "release/v1.2.2",
+        "release/v1.2.99",
+        "release/v1.2.99.1",
+        "release/v1.2.99.2",
+        "release/v1.3.0",
+        "release/v1.3.1",
+        "release/v1.3.2",
+        "release/v1.3.3",
+        "release/v1.3.4",
+        "release/v1.3.5",
+        "release/v1.3.99",
+        "release/v1.3.99.1",
+        "release/v1.4.0",
+        "release/v1.4.1",
+        "release/v1.4.99",
+        "release/v1.4.99.1",
+        "release/v1.4.99.2",
+        "release/v1.4.99.3",
+        "release/v1.4.99.4",
+        "release/v1.5.0",
+        "release/v1.5.0.99",
+        "release/v1.5.0.99.1",
+        "release/v1.5.0.99.2",
+        "release/v1.5.0.99.3",
+        "release/v1.5.0.99.4",
+        "release/v1.5.0.99.5",
+        "release/v1.5.1",
+        "release/v1.5.2",
+        "release/v1.5.2.1",
+        "release/v1.5.99",
+        "release/v1.5.99.1",
+        "release/v1.5.99.2",
+        "release/v1.5.99.3",
+        "release/v1.5.99.4",
+        "release/v1.6.0"
+      ],
+      "submodules": [
+        {
+          "path": "components/Adafruit-GFX-Library",
+          "url": "https://github.com/sindarin-inc/Adafruit-GFX-Library.git",
+          "commit": "527ca8aff362ecd3dc14c1e9cef56170b06d8e93",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "components/ArduinoJson",
+          "url": "https://github.com/bblanchon/ArduinoJson.git",
+          "commit": "ccfbb5fd1dbf37d99a14ba984262b9ca7891c5c2",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "components/astubs",
+          "url": "git@github.com:sindarin-inc/astubs.git",
+          "commit": "8347f0aa4e1113e5b2f034d072550353885e6d2f",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "components/esp-nimble-cpp",
+          "url": "git@github.com:h2zero/esp-nimble-cpp.git",
+          "commit": "ee895d386e285605a6feb589c1b6a7bd516e228e",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "components/esp_littlefs",
+          "url": "https://github.com/joltwallet/esp_littlefs.git",
+          "commit": "71e549277d3c728a87281b843f654638cb5eb154",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "components/freetype/freetype",
+          "url": "git@github.com:sindarin-inc/freetype.git",
+          "commit": "806b7a07b1098853069ad118c2921473f4b11a49",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "components/improv",
+          "url": "https://github.com/sindarin-inc/improv-wifi-sdk-cpp.git",
+          "commit": "e5d182f66e7dc22366f84d526f3e672e2b19fe61",
+          "recursive_dependencies_verified": false
+        },
+        {
+          "path": "lib/mbedtls",
+          "url": "https://github.com/Mbed-TLS/mbedtls.git",
+          "commit": "daca7a3979c22da155ec9dce49ab1abf3b65d3a9",
+          "recursive_dependencies_verified": false
+        }
+      ]
+    },
+    {
+      "name": "tiny-epub",
+      "url": "https://github.com/sindarin-inc/tiny-epub.git",
+      "default_branch": "main",
+      "commit": "3cea0c8059bae485e555003b72d25e4d2f86585f",
+      "ref": null,
+      "role": "research_only_not_v160_drop_in",
+      "license_status": "NO_LICENSE_FILE_FOUND_AUTHORIZATION_UNRESOLVED",
+      "license_files": [],
+      "tags": [],
+      "submodules": [
+        {
+          "path": "components/mbedtls",
+          "url": "https://github.com/Mbed-TLS/mbedtls.git",
+          "commit": "daca7a3979c22da155ec9dce49ab1abf3b65d3a9",
+          "recursive_dependencies_verified": false
+        }
+      ]
+    },
+    {
+      "name": "tiny-font",
+      "url": "https://github.com/sindarin-inc/tiny-font.git",
+      "default_branch": "main",
+      "commit": "53838e7c76943d95e209372bf65ad2d058e603d7",
+      "ref": null,
+      "role": "research_only_not_v160_drop_in",
+      "license_status": "NO_LICENSE_FILE_FOUND_AUTHORIZATION_UNRESOLVED",
+      "license_files": [],
+      "tags": [],
+      "submodules": [
+        {
+          "path": "freetype/freetype",
+          "url": "https://github.com/sindarin-inc/freetype.git",
+          "commit": "806b7a07b1098853069ad118c2921473f4b11a49",
+          "recursive_dependencies_verified": false
+        }
+      ]
+    },
+    {
+      "name": "desktop-app",
+      "url": "https://github.com/sindarin-inc/desktop-app.git",
+      "default_branch": "main",
+      "commit": "650a93af3472d868543fc2e792ea722f02b061d5",
+      "ref": null,
+      "role": "research_only_not_v160_drop_in",
+      "license_status": "NO_LICENSE_FILE_FOUND_AUTHORIZATION_UNRESOLVED",
+      "license_files": [],
+      "tags": [
+        "release/v0.1.0",
+        "release/v0.9",
+        "release/v0.9.1"
+      ],
+      "submodules": []
+    },
+    {
+      "name": "cpp-misc",
+      "url": "https://github.com/sindarin-inc/cpp-misc.git",
+      "default_branch": "main",
+      "commit": "c8d15a094c2c7f4c7fb41e78228502713fdd173c",
+      "ref": null,
+      "role": "research_only_not_v160_drop_in",
+      "license_status": "NO_LICENSE_FILE_FOUND_AUTHORIZATION_UNRESOLVED",
+      "license_files": [],
+      "tags": [],
+      "submodules": []
+    },
+    {
+      "name": "astubs",
+      "url": "https://github.com/sindarin-inc/astubs.git",
+      "default_branch": "main",
+      "commit": "8347f0aa4e1113e5b2f034d072550353885e6d2f",
+      "ref": null,
+      "role": "ota_update_dependency",
+      "license_status": "LGPL-2.1_ROOT_LICENSE_FOUND_COMPONENT_OBLIGATIONS_PENDING",
+      "license_files": [
+        "LICENSE"
+      ],
+      "tags": [],
+      "submodules": []
+    }
+  ],
+  "toolchain": {
+    "url": "https://github.com/espressif/esp-idf.git",
+    "tag": "v5.3.2",
+    "tag_object": "6920def9f050fe55df29954a2e8a41350b76b1d2",
+    "commit": "9d7f2d69f50d1288526d4f1027108e314e8c879f",
+    "installed": false,
+    "target": "esp32s3",
+    "profile": "glasses-release",
+    "sdkconfig_defaults": [
+      "sdkconfig.defaults",
+      "sdkconfig.defaults.glasses-release"
+    ],
+    "toolchain_binaries_and_idf_submodules_locked": false
+  },
+  "unresolved_transitive_dependencies": [
+    "esp_tinyusb 1.5.0 not downloaded",
+    "recursive submodules not resolved",
+    "tiny-font idflog Git dependency has no ref",
+    "P4-only registry wildcards are not First Edition dependencies"
+  ]
+}
