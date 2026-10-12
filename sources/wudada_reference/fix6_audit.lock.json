@@ -1,0 +1,34 @@
+{
+  "archive_sha256": "183619586db19e1bcff54cb3c5640428047b34c4deee1be4e4306364099e05cd",
+  "archive_members": 109,
+  "expanded_bytes": 6602024,
+  "reference_version": "UI_POLISH_FIX6 (source package/user identity, not full firmware build verification)",
+  "private_source_required": true,
+  "adapted_wrapping_version": 5,
+  "original_compile_files": {
+    "src/reader/encoding.cpp": "babe4a40f338fb16c4a91a2d9c7012d8c48f482d1f6a7a3d41a05a32ffc1f765",
+    "src/reader/encoding.h": "f55ac3df71c6111308820de63aac778c4e71bf537cfd5ef81b9a5e1a9f3b4278",
+    "src/reader/encoding_tables.inc": "f4a00be41d0acb3e5de3fd86dc32eb71060c8cfebe4e7471276db112c5dfe0b2",
+    "src/reader/navigation.cpp": "f23d69a432e727b088441351af4af4eb5680b3d8116104e7ffd96b17a419b4fa",
+    "src/reader/navigation.h": "643624aa00345ebbdf372df60343d4ed0b9eddf212bc039e36885f1a25e627e2",
+    "src/reader/navigation_job.cpp": "5ab1b5daad4f706deb2635530eacf36a9b994597ba8ff6b207805cf497ff9233",
+    "src/reader/paginator.cpp": "1b1172babd8106f85d07a5e5383ff8396b2edc8d954fa64033b51675aec1ae8c",
+    "src/reader/paginator.h": "f764af96cdc7077c7dfd774fb709a3f3fa593a7bcba7b5d1c6d6167406d5b14b",
+    "src/reader/progress.cpp": "0af76c8c75bbc892fdc3ead860e77d7159bd046dbfd74815677785f39c481e9a",
+    "src/reader/progress.h": "9672c932021dcaab8055f934367b263ca92af6f635d103bb6c2a91da4b4663b3",
+    "src/reader/utf8.h": "109d47c95637c25a33f9115fd245901c67b379c7eeb563fbe4eb39b57b3d418c"
+  },
+  "adapted_compile_files": {
+    "src/reader/encoding.cpp": "babe4a40f338fb16c4a91a2d9c7012d8c48f482d1f6a7a3d41a05a32ffc1f765",
+    "src/reader/encoding.h": "f55ac3df71c6111308820de63aac778c4e71bf537cfd5ef81b9a5e1a9f3b4278",
+    "src/reader/encoding_tables.inc": "f4a00be41d0acb3e5de3fd86dc32eb71060c8cfebe4e7471276db112c5dfe0b2",
+    "src/reader/navigation.cpp": "f23d69a432e727b088441351af4af4eb5680b3d8116104e7ffd96b17a419b4fa",
+    "src/reader/navigation.h": "8a24a4808466e65ba9180c8d86ce557304e2094817ab2d3b356d820e72fb6064",
+    "src/reader/navigation_job.cpp": "6e19788a707ced8a21c87a520f9a08d5a9f78e1e85383a001f4d6f2832dff7f1",
+    "src/reader/paginator.cpp": "ba88956acf1925ba5e5362a25b09d219db53b14c5faa016d22f95ed4bbe811f8",
+    "src/reader/paginator.h": "f764af96cdc7077c7dfd774fb709a3f3fa593a7bcba7b5d1c6d6167406d5b14b",
+    "src/reader/progress.cpp": "0af76c8c75bbc892fdc3ead860e77d7159bd046dbfd74815677785f39c481e9a",
+    "src/reader/progress.h": "9672c932021dcaab8055f934367b263ca92af6f635d103bb6c2a91da4b4663b3",
+    "src/reader/utf8.h": "109d47c95637c25a33f9115fd245901c67b379c7eeb563fbe4eb39b57b3d418c"
+  }
+}
