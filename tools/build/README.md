@@ -15,3 +15,7 @@ v1.6.0 构建意图为 ESP-IDF v5.3.2、esp32s3、glasses-release，
 
 完整官方IDF构建进展与网络阻断见docs/11；最新参考审计、适配、命令及目标单元编译见docs/12。
 不使用上述主机工具操作设备或宣称固件链接成功。
+
+setup_official.sh：重复执行已通过的固定IDF工具/官方子模块准备，保留现有检出和校验。
+build_official.sh：固定SHA及First Edition配置，只运行reconfigure/Ninja默认目标（4并行），无设备命令。
+当前组件元数据403仍阻断配置；完整构建脚本不标为成功，待域名访问恢复后验证。
