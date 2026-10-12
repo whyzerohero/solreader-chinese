@@ -11,3 +11,8 @@
 新增audit_usb_offline.py：对固定官方源函数做临时编译和桩注入，16项检查实际通过；
 不导入serial/esptool，不打开真实端口。结论及最小只读观察实验见docs/13。
 桌面esptool_verify并非只读：源码会先擦otadata，不执行该真实工具。
+
+solreader-cli完整源码调查见docs/14；docs/13的PnP方案用户已完成，不重复要求。
+audit_cli_offline.py只做固定第三方源码守卫、Python行为模型和ZIP解析，16项通过；
+不执行/编译Haskell、不打开端口、不导入serial/esptool或执行ZIP脚本。
+第三方--jtag-port不创造下载接口，附带2024年旧包不是本机v1.6.0恢复备份。

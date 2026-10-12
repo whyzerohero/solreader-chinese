@@ -1,0 +1,104 @@
+{
+  "repository": "https://github.com/collinarnett/solreader-cli",
+  "commit": "db769460455e05ea54b1460b86493ecf4f9785eb",
+  "source_sha256": {
+    "app/Main.hs": "5636bc8fdd33e33560dc3b28f6555196160e555c8bd6459a20bd05579741412e",
+    "src/Sol/Device.hs": "6f4e56c869eaafc6217ccd7ffea7b522e84a5085de2c3582d80335e94bec8fa5",
+    "src/Sol/Serial.hs": "090d66411b3f44d29d5e03cfce40847230b2dd61431e111cae8185b47b1b200d",
+    "src/Sol/Ports.hs": "b0547427a894384d7720577ac5ae8da174900c96c982809a122b13b4662b8704",
+    "src/Sol/Firmware.hs": "f361b41f5998c7d02465d652d7bf47bcc6542d04fd85dc431bf6512a0c199c02",
+    "solreader.cabal": "dca9453450eecef5c587ef757cbfe3fe75365a1cb654a93549de9711cc0d2a27",
+    "flake.nix": "8cca4ae21c5fe5dba655ca77bb1d6ec741a47c27d7e43d2087e2b24bb8be0b0b",
+    "flake.lock": "544993ad6d8b43202d9dec67d0c34decd08c650e9976875ac843427b83ed9746"
+  },
+  "bundle": {
+    "name": "embedded-app-b3db33b2461bdb98dd0062852cc14527c2142949-IDFv5.1.4.zip",
+    "bytes": 2059830,
+    "sha256": "14c2df908082b83a860f0cc02aa1c97edc1c06554796684a07642cbe0e8bb0e8",
+    "app_version": "release/v1.0.6-8-gb3db33b2",
+    "idf_version": "v5.1.4",
+    "secure_version": 0,
+    "files": {
+      "partition-table.bin": {
+        "bytes": 3072,
+        "sha256": "ec5edbf63cab4565bb611c4dce085eaa3212642869707f924adf66a95c902afe"
+      },
+      "flash.sh": {
+        "bytes": 242,
+        "sha256": "e3d24a9a7e697d2f9fd950f5e4c034a601b5d40dbdc8e979a0505d2f973924b5"
+      },
+      "bootloader.bin": {
+        "bytes": 20368,
+        "sha256": "23ede8ec1ebaddc97de3697b5662c314b0b7c93d5bb58263356217839ebd7537"
+      },
+      "ota_data_initial.bin": {
+        "bytes": 8192,
+        "sha256": "7d2c7ac4888bfd75cd5f56e8d61f69595121183afc81556c876732fd3782c62f"
+      },
+      "embedded-app.bin": {
+        "bytes": 3180688,
+        "sha256": "b551325df38f41a9dc509d45ae2a318f4dc57837b994e84cba33a2f953611356"
+      }
+    },
+    "flash_script_text": "esptool.py -b 460800 --before default_reset --after hard_reset --chip esp32s3  write_flash --flash_mode dio --flash_size 64MB --flash_freq 80m 0x0 bootloader.bin 0x8000 partition-table.bin 0xe000 ota_data_initial.bin 0x10000 embedded-app.bin\n",
+    "partitions": [
+      {
+        "name": "nvs",
+        "offset": "0x9000",
+        "size": "0x5000",
+        "type": 1,
+        "subtype": 2,
+        "flags": 0
+      },
+      {
+        "name": "otadata",
+        "offset": "0xe000",
+        "size": "0x2000",
+        "type": 1,
+        "subtype": 0,
+        "flags": 0
+      },
+      {
+        "name": "app0",
+        "offset": "0x10000",
+        "size": "0x400000",
+        "type": 0,
+        "subtype": 16,
+        "flags": 0
+      },
+      {
+        "name": "app1",
+        "offset": "0x410000",
+        "size": "0x400000",
+        "type": 0,
+        "subtype": 17,
+        "flags": 0
+      },
+      {
+        "name": "coredump",
+        "offset": "0x810000",
+        "size": "0x10000",
+        "type": 1,
+        "subtype": 3,
+        "flags": 0
+      },
+      {
+        "name": "data",
+        "offset": "0x820000",
+        "size": "0x37e0000",
+        "type": 1,
+        "subtype": 130,
+        "flags": 0
+      }
+    ]
+  },
+  "offline_checks": {
+    "passed": 16,
+    "failed": 0,
+    "kind": "Python source guards/models and binary inspection",
+    "haskell_compiled": false,
+    "haskell_executed": false,
+    "device_operations": false,
+    "scripts_executed": false
+  }
+}
