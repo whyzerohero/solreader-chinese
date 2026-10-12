@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DOCS = [
     "01_项目目标.md", "02_官方源码清单.md", "03_第一代硬件与版本.md",
     "04_屏幕与电源.md", "05_遥控器协议.md", "06_中文阅读引擎.md",
-    "07_刷机备份与恢复.md", "08_武哒哒移植.md", "09_九宫格与笔记.md", "10_开发进度.md",
+    "07_刷机备份与恢复.md", "08_自制极简阅读固件设计参考.md", "09_九宫格与笔记.md", "10_开发进度.md",
 ]
 
 
@@ -39,8 +39,17 @@ def main():
     for name in files:
         path = ROOT / name
         require(path.is_file() and path.stat().st_size > 0, f"Missing or empty: {name}")
-    require("WAITING_FOR_SOURCE_IMPORT" in
-            (ROOT / "sources/wudada_reference/README.md").read_text(), "Import status missing")
+    # Scan tracked project text for the removed dependency and routing assumptions.
+    forbidden = ["WAITING_" + "FOR_SOURCE_IMPORT", "原厂遥控器驱动的" + "单手九宫格",
+                 "遥控器操作的" + "软件九宫格", "virtual void navigate(const " + "InputEvent"]
+    for name in git(ROOT, "ls-files").splitlines():
+        path = ROOT / name
+        if not path.is_file():  # A renamed file can remain in the index before staging.
+            continue
+        text = path.read_text(encoding="utf-8")
+        for phrase in forbidden:
+            require(phrase not in text, f"Obsolete architecture assumption: {name}")
+    require(not (ROOT / "docs/08_武哒哒移植.md").exists(), "Obsolete migration plan exists")
     rules = (ROOT / "AGENTS.md").read_text()
     for number in range(1, 21):
         require(re.search(rf"(?m)^{number}\. ", rules), f"Missing project rule {number}")

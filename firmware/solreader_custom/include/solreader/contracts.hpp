@@ -8,6 +8,7 @@
 namespace solreader {
 
 // Architecture proposal only: the logical values follow official RemoteCommand.
+// Reading control only. Never forward these events to the Chinese IME.
 // An adapter must preserve reading behavior and run consumers on the UI queue.
 enum class InputAction : std::int8_t {
     up = 0x5, left = 0x8, confirm = 0x9, right = 0xA,
@@ -48,11 +49,21 @@ public:
     virtual bool save_atomic(const ReadingPosition &position) = 0;
 };
 
+// Semantic extension boundary for future dedicated one-handed input hardware.
+// No button count/layout, transport, protocol or factory-remote codes are defined.
+enum class CompositionAction { input_symbol, select_candidate, erase, commit, cancel };
+struct CompositionEvent {
+    CompositionAction action{CompositionAction::cancel};
+    std::string symbol_utf8; // Semantic symbol, not a physical key or wire payload.
+    std::optional<std::uint32_t> candidate_index;
+    std::uint64_t timestamp_ms{};
+};
+
 enum class Mode { reading, writing };
 class TextComposition {
 public:
     virtual ~TextComposition() = default;
-    virtual void navigate(const InputEvent &event) = 0;
+    virtual void on_composition(const CompositionEvent &event) = 0;
     virtual std::string_view preedit_utf8() const = 0;
     virtual std::optional<std::string> accept_candidate() = 0;
     virtual void cancel() = 0;
