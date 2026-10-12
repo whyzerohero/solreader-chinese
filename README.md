@@ -40,7 +40,6 @@ v1.6.0 的阅读和字体代码仍在 embedded-app 内；之后 main 才拆分 t
 | [docs/10_开发进度.md](docs/10_开发进度.md) | 结果、阻断与下一任务 |
 | [docs/02_官方源码清单.md](docs/02_官方源码清单.md) | 24 个公开仓库清单、许可证、锁定引用 |
 | sources/official/ | 固定 SHA、上游子模块与公开发布包校验记录 |
-| sources/wudada_reference/ | 历史命名纠正说明；武哒哒不是基础、依赖或开发阻断 |
 | [docs/08_自制极简阅读固件设计参考.md](docs/08_自制极简阅读固件设计参考.md) | 上层产品设计参考及源码审计边界 |
 | firmware/solreader_custom/ | 独立接口契约和模块设计，无硬件驱动实现 |
 | tools/build/ | 安全的来源核验、字体覆盖检查 |
