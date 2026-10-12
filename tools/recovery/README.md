@@ -7,3 +7,7 @@
 分区和 NVS/校准/配对数据、存储加密状态、恢复依赖；敏感内容只能私有保存。
 上游 BootLoopDetection 存在先清数据再回滚的路径及可疑分区读取判断，
 在离线修正验证前不能作为可信恢复机制。不得运行 FactoryReset 或上游 unpair-remote。
+
+新增audit_usb_offline.py：对固定官方源函数做临时编译和桩注入，16项检查实际通过；
+不导入serial/esptool，不打开真实端口。结论及最小只读观察实验见docs/13。
+桌面esptool_verify并非只读：源码会先擦otadata，不执行该真实工具。

@@ -1,0 +1,24 @@
+{
+  "audit_date": "2026-10-12",
+  "application_commit": "7dcf0850daa5cec076c8d68e2f56cf413ff707aa",
+  "idf_commit": "9d7f2d69f50d1288526d4f1027108e314e8c879f",
+  "esp_tinyusb": {
+    "version": "1.5.0",
+    "repository": "https://github.com/espressif/esp-usb.git",
+    "commit": "20389182dbfd49f600f9fe56b70485f244b48087",
+    "version_source": "https://components.espressif.com/components/espressif/esp_tinyusb/versions/1.5.0",
+    "files_sha256": {
+      "device/esp_tinyusb/idf_component.yml": "9cb9d808925a6d001b5564cc62628da4dfd1da1a93ed0a3938e4cbf0d0e186b8",
+      "device/esp_tinyusb/tinyusb.c": "cd884c7f8ac22f62b8cf3a7155658a83610885d31927b311e7b58f5060c42d79",
+      "device/esp_tinyusb/tusb_tasks.c": "82d81c778fddf5264ff00dce7f2730ca1b3847241b63e7431d49f8a3e6e5b641",
+      "device/esp_tinyusb/descriptors_control.c": "e9f8de93deebf25455cd55712edefb86c858d7a68b83af4d329df065ae6559a4",
+      "device/esp_tinyusb/cdc.c": "29feb54dce9ff0c4286be2e8c59b20fa7006ec87b10cb17a6175fa7749544867",
+      "device/esp_tinyusb/usb_descriptors.c": "e102e77988db89e57deae910df5f679e8b53850ba525a0aa871cb6fb856fa8f1",
+      "device/esp_tinyusb/Kconfig": "e731c6fe5ad08cafc93dd400858b6509509ce51d54bbc526ef080dba454295c3"
+    }
+  },
+  "desktop_app_commit": "650a93af3472d868543fc2e792ea722f02b061d5",
+  "firmware_dependency_identity_proven_on_device": false,
+  "device_operations_executed": false,
+  "offline_fault_injection_checks": 16
+}
