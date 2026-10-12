@@ -7,7 +7,7 @@ Chinese-first minimalist reading and writing firmware for Sol Reader, with futur
 用户此前自制极简阅读固件的阅读交互、分页、排版和功能设计是上层产品设计的重要参考；
 未经源码、许可和平台兼容性检查，不宣称已有固件可直接移植、编译或刷写。
 
-目前完成的是工程初始化与官方源码初步审计，**尚无自定义固件、实机测试或安全刷机工具**。
+已增加设备无关中文 TXT 主机原型、基于已审查自制算法的平台适配及可执行离线测试，**尚无完整设备固件、实机测试或安全刷机工具**。
 
 ## 产品路线
 
@@ -41,7 +41,7 @@ v1.6.0 的阅读和字体代码仍在 embedded-app 内；之后 main 才拆分 t
 | [docs/02_官方源码清单.md](docs/02_官方源码清单.md) | 24 个公开仓库清单、许可证、锁定引用 |
 | sources/official/ | 固定 SHA、上游子模块与公开发布包校验记录 |
 | [docs/08_自制极简阅读固件设计参考.md](docs/08_自制极简阅读固件设计参考.md) | 上层产品设计参考及源码审计边界 |
-| firmware/solreader_custom/ | 独立接口契约和模块设计，无硬件驱动实现 |
+| firmware/solreader_custom/ | 中文 TXT 主机代码、阅读适配与独立接口，无硬件驱动实现 |
 | tools/build/ | 安全的来源核验、字体覆盖检查 |
 | tools/flash/、tools/recovery/ | 未验证的更新与恢复条件，无刷写脚本 |
 | tests/ | 本机接口编译检查及未来中文测试矩阵 |
@@ -56,6 +56,7 @@ v1.6.0 的阅读和字体代码仍在 embedded-app 内；之后 main 才拆分 t
 
 ```sh
 python3 tools/build/verify_project.py
+SANITIZE=1 tools/build/test_reader.sh
 python3 tools/build/verify_project.py --source-root /workspace/work/official
 c++ -std=c++17 -Wall -Wextra -Werror -pedantic -fsyntax-only tests/contract_compile.cpp
 python3 tools/build/audit_fonts.py --source-root /workspace/work/official

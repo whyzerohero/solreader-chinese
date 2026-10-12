@@ -50,6 +50,8 @@ def main():
         for phrase in forbidden:
             require(phrase not in text, f"Obsolete architecture assumption: {name}")
     require(not (ROOT / "docs/08_武哒哒移植.md").exists(), "Obsolete migration plan exists")
+    require(not re.search(r"wudada|武哒哒", (ROOT / "README.md").read_text(), re.IGNORECASE),
+            "Internal name exposed in public README")
     rules = (ROOT / "AGENTS.md").read_text()
     for number in range(1, 21):
         require(re.search(rf"(?m)^{number}\. ", rules), f"Missing project rule {number}")
