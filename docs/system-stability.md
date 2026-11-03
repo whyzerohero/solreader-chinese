@@ -1,0 +1,9 @@
+# System stability engineering
+
+Oxford4 development focused on crashes and lifecycle hazards while retaining the original First Edition reading stack. An older core dump identified a failed Core0BG task creation assertion on a BLE/PageTurner path. The current code reserves static internal task stack/TCB storage early and guards concurrent queue creation; targeted host tests cover startup and dispatch. This evidence identifies the older failure path, not every later reboot.
+
+The local source also includes PSRAM allocation and release fixes, download stack/resource work, serialized display transactions, cancellation/shutdown guards, sleep/wake ordering fixes, and a full-definition first-screen refresh fix. ACE mode selection uses the existing UI queue and waits for an active display transaction before switching. The E path retains an unknown-physical-state latch after a failed drive rather than pretending the framebuffer is trustworthy.
+
+Network work includes HTTP transport, asynchronous DNS, TLS integration, timeouts, and cleanup checks. Host network tests and isolated HTTPS scenarios passed, but the glasses still have a reported immediate “Sync unsuccessful!” result. The failure stage has not been confirmed from a matching current device log; networking is an open issue.
+
+The final ACE image passed 16/16 host regression suites plus focused mode, font, dictionary, and display transaction tests. The owner confirmed startup, reading, BLE, dictionary first screen, and ACE selection. Test models, compiler stack estimates, and 30 seconds of application communication do not measure extended heap fragmentation, actual task high-water marks, repeated sleep cycles, or all combinations of lookup and connectivity. A historical rapid-lookup restart remains unresolved. See [status](current-status.md) and [known issues](known-issues.md).

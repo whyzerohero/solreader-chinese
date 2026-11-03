@@ -1,67 +1,63 @@
-# SolReader-Chinese
+# SolReader-Chinese: Chinese-First Firmware for Sol Reader
 
-Chinese-first minimalist reading and writing firmware for Sol Reader, with future dedicated one-handed Chinese input hardware.
+An independent firmware development project for **Sol Reader First Edition**. It focuses on Chinese reading, English dictionary usability, E Ink refresh quality, and system stability. One-handed Chinese writing is a future goal.
 
-面向 **Sol Reader First Edition** 的长期固件项目，以中文阅读和中文写作为核心。
-利用可合法复用的官方硬件底层、驱动与工具，开发自己的极简中文阅读固件。
-用户此前自制极简阅读固件的阅读交互、分页、排版和功能设计是上层产品设计的重要参考；
-未经源码、许可和平台兼容性检查，不宣称已有固件可直接移植、编译或刷写。
+## Current status
 
-目前完成的是工程初始化与官方源码初步审计，**尚无自定义固件、实机测试或安全刷机工具**。
+**Oxford4_FINAL_ACE is a functionally validated device baseline (November 3, 2026).** A complete ESP32-S3 firmware build succeeded, the app was written to the device's app1 partition and verified by readback, and the owner confirmed Chinese and English page turning, reading-position restoration, BLE, the full first screen of dictionary definitions, and A/C/E mode selection retained after restart. These checks establish a working baseline, not long-term stability.
 
-## 产品路线
+The project retains the original Sol Reader reading, storage, display, and remote-control foundations. Its local changes add Chinese glyph and pagination support, improve the existing English dictionary presentation, harden task and display lifecycles, and offer three selectable refresh modes. The full modified upstream firmware and firmware binary are **not distributed here** while redistribution rights remain unresolved.
 
-- 第一阶段：简体中文 TXT/EPUB、中文字体、UTF-8、标点禁则、中英混排、字号、跳转、选书和阅读位置恢复。
-- 第二阶段：未来独立单手实体输入硬件驱动的九宫格中文输入、候选词、编辑与笔记；本轮只规划接口。
-- 第三阶段：可复现构建、可验证原厂备份、Windows 10 更新工具、回滚和恢复；须经过真实验证。
-
-原厂遥控器只有五个实体按键（用户已确认），用于翻页和菜单等基本阅读控制，不用于九宫格输入。
-专用输入硬件的按键数量、布局、连接协议和通信方式尚未确定；接口保持独立且可扩展。
-
-不人为删掉官方成熟 EPUB、Unicode 或英文支持。GBK/GB18030 优先考虑电脑导入时转换，后续根据实际资源决定设备端支持。
-
-## 版本与当前阻断
-
-用户实机返回 `VERSION SEMVER,1.6.0;GIT,release/v1.6.0`。
-官方 Tag `release/v1.6.0` 指向 `7dcf0850daa5cec076c8d68e2f56cf413ff707aa`，
-候选 First Edition 构建配置为 ESP32-S3 / ESP-IDF v5.3.2 / glasses-release。
-官方发布包 SHA-256 已离线核对，不能据此认定与实机逐字节一致。
-
-五个主要官方仓库未找到顶层许可证，授权范围待澄清；源码以固定 SHA 清单管理，不复制进公开 Git 历史。
-v1.6.0 的阅读和字体代码仍在 embedded-app 内；之后 main 才拆分 tiny-epub、tiny-font、cpp-misc，不能混装。
-附带字体不覆盖常用汉字；中文换行与禁则需要补充。遥控器固件、服务端和硬件设计未找到可访问资料。
-原厂回滚逻辑有可疑读取判断，并在回滚前执行数据清除，见恢复审计。
-
-## 工程入口
-
-| 位置 | 用途 |
+| Milestone | Status |
 | --- | --- |
-| [AGENTS.md](AGENTS.md) | 长期规则及设备安全约束 |
-| [docs/10_开发进度.md](docs/10_开发进度.md) | 结果、阻断与下一任务 |
-| [docs/02_官方源码清单.md](docs/02_官方源码清单.md) | 24 个公开仓库清单、许可证、锁定引用 |
-| sources/official/ | 固定 SHA、上游子模块与公开发布包校验记录 |
-| [docs/08_自制极简阅读固件设计参考.md](docs/08_自制极简阅读固件设计参考.md) | 上层产品设计参考及源码审计边界 |
-| firmware/solreader_custom/ | 独立接口契约和模块设计，无硬件驱动实现 |
-| tools/build/ | 安全的来源核验、字体覆盖检查 |
-| tools/flash/、tools/recovery/ | 未验证的更新与恢复条件，无刷写脚本 |
-| tests/ | 本机接口编译检查及未来中文测试矩阵 |
-| backups/、outputs/ | 私有备份与生成物目录，不进入公开 Git |
+| Chinese and English reading, page turns, position recovery | Verified on one First Edition device |
+| English-English Oxford dictionary and complete first definition screen | Verified on device |
+| A/C/E E Ink modes and saved selection | Verified on device; quality ranking is observational |
+| Core0 task, memory, cancellation, display scheduling fixes | Built and regression-tested; long-term behavior still under study |
+| Wi-Fi connection, online sync, online book download | Known issue; not verified working on this firmware |
+| Dedicated one-handed Chinese input and note taking | Planned |
 
-## 云端继续工作
+## Chinese reading
 
-清单版本固定在 [manifest.lock.json](sources/official/manifest.lock.json)。
-可使用本项目的 `python3 tools/build/fetch_official.py` 取得这些只读研究引用；
-它只克隆固定提交，不初始化传递子模块、不运行上游脚本、不安装工具链、不接触设备。
-首次只检出 embedded-app 等研究源码，缺失的完整工具链和传递依赖不能称为可复现构建。
+The current device firmware includes Chinese glyph fallback, mixed Chinese/English rendering, pagination and layout work, font-size selection, and per-book reading-place restoration. The owner has read Chinese and English text and confirmed continuous page turning after the ACE update. Coverage is bounded by the integrated font and mapping; complete Unicode/CJK coverage and flawless punctuation layout are not claimed. Older cached pages may still show earlier punctuation rules until regenerated. See [Chinese reading](docs/chinese-reading.md).
 
-```sh
-python3 tools/build/verify_project.py
-python3 tools/build/verify_project.py --source-root /workspace/work/official
-c++ -std=c++17 -Wall -Wextra -Werror -pedantic -fsyntax-only tests/contract_compile.cpp
-python3 tools/build/audit_fonts.py --source-root /workspace/work/official
-```
+## Dictionary
 
-以上都是离线检查。不要运行上游 make 的 flash、unpair-remote、program-mode、
-port_tool.py 的 programming/reset_jtag 或 monitor；这些可切换 USB、复位或写入设备。
-不连接 Windows 电脑或眼镜，不执行 PROGRAM、OpenOCD、ROM 下载或任何擦写操作。
-开发分支经 PR 持久化，不自动合并 main。
+The current implementation is **English-English**, using an Oxford index/data pack stored privately on the device. It provides word lookup, cursor/preview interaction, and a full definition view. The first definition screen now renders correctly on the device. A historical occasional restart during rapid repeated lookups has no confirmed root cause. This is not a completed Chinese or bilingual dictionary. See [Dictionary](docs/dictionary.md).
+
+## E Ink refresh: A, C, E
+
+Two ET013TT1 displays are driven by the existing firmware display stack. **C — Best Quality** is the saved default after the owner's direct comparison: deeper blacks, sharper text, and less visible ghosting than E or A. **E — Faster Refresh** was observed to look better than A and refresh faster than C. **A — Original** retains the reference behavior. These are user observations, not calibrated optical or lifetime measurements.
+
+Select a mode on the glasses at **Main Menu → Settings → Reading Style → Refresh Mode**. Use Up/Down, then OK to save; the choice survives restart. The enhanced sequences apply only to eligible ordinary text-page FULL refreshes; other screens retain their existing behavior. See [ACE refresh engineering](docs/eink-refresh-ace.md).
+
+## Engineering and validation
+
+The ACE image targets the **First Edition ESP32-S3 with 64 MB flash**, using ESP-IDF v5.3.2 and the glasses-release profile. The app1 partition starts at `0x410000` and holds 4 MiB. The built image is **3,654,960 bytes** with SHA-256 `b67fa8e05c8e72dc489f8e9d135329d8436524522ea616f2d657ed3ea04fe4ae`. The local release passed a clean production build and 16/16 host regression suites. A single authorized app1-only device write passed full image readback; the owner then confirmed the functions above. No whole-flash backup or public flashing package is supplied here.
+
+Development has also addressed static Core0 task stack/TCB allocation, concurrent queue creation, PSRAM/resource lifetimes, shutdown cancellation, and HTTP/DNS/TLS integration. Isolated network tests do **not** prove working device connectivity. See [status](docs/current-status.md), [stability](docs/system-stability.md), and [build and validation](docs/build-and-validation.md).
+
+## Known Limitations and Open Issues
+
+- **Network connectivity remains unresolved.** The glasses previously showed “Sync unsuccessful!” immediately after Connect Internet / Sync. The precise current failure stage is not established. Wi-Fi, authentication, online sync, and book download require device-level diagnosis.
+- A historical restart during rapid dictionary lookups remains unexplained; longer reading/BLE/sleep cycles need further observation.
+- Refresh quality comparisons are visual reports; combined waveform safety and panel lifetime have not been independently certified.
+- Font coverage, older-page punctuation cache behavior, and some format/layout cases remain incomplete or unverified.
+- The build is specific to the verified First Edition partition map and hardware. Do not apply it to V2 or other boards.
+- Upstream firmware and waveform redistribution rights are unresolved. No firmware BIN, proprietary waveform table, private book, dictionary pack, flash dump, credential, or device identifier is published here.
+
+See the [issue register](docs/known-issues.md) for status and evidence boundaries.
+
+## Roadmap
+
+Next: diagnose device networking, investigate dictionary restart evidence, continue Chinese layout and font work, and measure sustained device stability. Later: a dedicated **12-key one-handed Chinese T9 keyboard**, candidate/phrase prediction, note taking, and possible BLE keyboard integration for comfortable long-form writing. These writing features are planned; they are not present in the validated firmware. See [roadmap](docs/roadmap.md).
+
+## Build, sources, and acknowledgments
+
+This repository keeps its earlier independent Chinese reading prototype and historical research. PR #2 contains unmerged prototype work; it is not the installed ACE firmware. To study the device baseline, start with [build and validation](docs/build-and-validation.md) and the pinned [upstream source manifest](sources/official/manifest.lock.json). Original Sol Reader functionality and hardware work belong to [Sindarin](https://github.com/sindarin-inc/embedded-app). The upstream release/v1.6.0 waveform tool identifies original waveform data as supplied by E Ink; that attribution does not certify our multi-stage sequences or any particular panel batch.
+
+The public repository has no blanket license covering upstream material. We publish documentation and links while source, font, waveform, binary, and private-data rights are reviewed. Earlier Chinese documents remain available as dated historical records.
+
+### Contact & Community
+
+Questions, suggestions, bug reports, and collaboration ideas are welcome. Reach me on Reddit: [u/Brave_Hall_6126](https://www.reddit.com/user/Brave_Hall_6126/). I welcome conversations with developers, E Ink enthusiasts, and people interested in Chinese reading and one-handed writing.
