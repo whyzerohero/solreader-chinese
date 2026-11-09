@@ -1,13 +1,29 @@
-# Known Limitations and Open Issues
+# Known limitations and remaining validation
 
-| Area | Status | Evidence and next step |
+**Updated November 9, 2026.** Resolved historical paths are separated from what is still unknown.
+
+## Superseded failure descriptions
+
+- The old immediate Wi-Fi initialization failure was traced to `ESP_ERR_NO_MEM`; the subsequent USB RX storage change is retained, and NET4 device logs show successful initialization and DHCP.
+- A same-Core1 telemetry queue deadlock was reproduced and fixed in NET4. The owner now reports OK can exit synchronization.
+- “No device download has succeeded” is superseded: at least eight files were verified and saved in the NET4 capture.
+- The owner now sees the menu clock. A fresh SNTP exchange is still a separate unverified event.
+
+These results do not resolve every possible network failure or establish full-session completion.
+
+## Current register
+
+| Area | Current status | Evidence and next step |
 | --- | --- | --- |
-| Network connectivity and synchronization | **Known issue** | The owner reported “Sync unsuccessful!” almost immediately after Connect Internet / Sync. Existing HTTP/DNS/TLS code and host tests do not locate the current device failure stage. Collect matching logs before claiming Wi-Fi, authentication, or download success. |
-| Repeated dictionary lookups | **Known issue** | One historical rapid-lookup sequence caused a restart; no conclusive matching crash evidence for that event. Continue observation and preserve a dump with its exact ELF if repeated. |
-| Long-term runtime stability | **Unverified** | Functional acceptance and a short communication check passed; sustained reading, BLE reconnection, repeated sleep/wake and memory high-water behavior need measurement. |
-| E Ink contrast and lifetime | **Observed / unverified** | C > E > A is an owner visual comparison, not calibrated contrast, energy, or panel-lifetime data. Combined stages have no separate manufacturer qualification on record. |
-| Chinese coverage and cached layout | **Partial** | Finite mapped glyph set; older cached pages can retain earlier punctuation layout. Complete typography and all TXT/EPUB variants are unverified. |
-| Hardware compatibility | **Limited** | The image and app1 procedure were verified on one First Edition ESP32-S3/64 MB layout. Other models and partitions are not established. |
-| Redistribution | **Open** | Upstream firmware, font, waveform, dictionary and binary rights have not been cleared for public distribution. The public update contains documentation and links, not those assets. |
+| Entire Books/Articles batch | **Not yet established** | Transfers and individual saved files are confirmed; capture ended with work in progress. Verify final result and open new content. |
+| SNTP and retained clock accuracy | **Partially verified** | Clock display confirmed by owner; no full SNTP transaction captured. Check fresh/retained time and power-cycle behavior without bypassing TLS date checks. |
+| Progress feedback | **Needs broader validation** | A batch-weighted integer display can show zero while a large first file transfers. Capture lacked total count and every UI value; avoid interpreting this as a uniquely diagnosed UI bug. |
+| Sustained networking and recovery | **Unverified beyond sampled session** | Reconnects, interruptions, deadlines, and cancellation have host coverage; wider physical-device conditions still need testing. |
+| Peak memory / extreme EPUBs | **Open validation and source limits** | Real heap/block/stack samples exist, but not exhaustive peaks, every task, or all operations. Large XML DOM/metadata and arbitrary STL OOM are not fully certified safe. |
+| Repeated dictionary lookup | **Unresolved historical event** | A rapid-lookup sequence coincided with a restart; no conclusive matching crash cause. Preserve exact-version evidence if repeated. |
+| Chinese glyph/layout coverage | **Finite / incomplete validation** | 21,791-character mapping and targeted punctuation/page tests do not cover every glyph, large-size result, or complex EPUB. Earlier cached-layout reports are not automatically current defects. |
+| Long reading / sleep / BLE combinations | **Further validation needed** | Functional baseline passed; sustained mixed-operation and all reconnection patterns are not established. |
+| E Ink quality, energy, lifetime | **Observed / unqualified** | C > E > A is an owner comparison, not calibrated optical data or manufacturer qualification of combined stages. |
+| Other hardware and redistribution | **Limited / unresolved** | Evidence covers one First Edition configuration. Firmware, fonts, waveforms, private content, and binary redistribution remain outside this publication. |
 
-The October Chinese prototype work in PR #2 is separate from the November ACE device image. Status labels refer to the evidence named above.
+See [network evidence](network-recovery.md), [Chinese reading](chinese-reading.md), [validation](build-and-validation.md), and [roadmap](roadmap.md). Earlier Chinese research and the unmerged PR #2 remain historical/separate work.
